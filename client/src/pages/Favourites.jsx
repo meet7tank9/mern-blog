@@ -40,7 +40,7 @@ const Favourites = () => {
     const handleRemove = async (postId) => {
         try {
             const response = await axios.delete(`${process.env.REACT_APP_BASE_URL}/favourites/remove-favourite/${postId}`, { withCredentials: true, headers: { Authorization: `Bearer ${token}` } })
-            console.log(response)
+            
             // setPosts(response.data.favourites)
             if (response.status == 200) {
                 alert(response.data.message)

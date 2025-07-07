@@ -40,8 +40,8 @@ const PostRating = ({ postId, ratings = [] }) => {
             
             const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/posts/${postId}/totalRatings`);
             setRatingLength(response.data.ratingLength);
-        } catch (err) {
-            console.log(err);
+        } catch (error) {
+            alert(error.response.data.message)
         }
     };
 

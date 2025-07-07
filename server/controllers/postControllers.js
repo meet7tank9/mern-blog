@@ -6,9 +6,7 @@ const { v4: uuid } = require("uuid")
 const HttpError = require("../models/errorModel")
 
 
-// Create A POST
-// POST : api/posts
-// Protected
+
 const createPost = async (req, res, next) => {
     try {
         let { title, category, description } = req.body
@@ -49,9 +47,7 @@ const createPost = async (req, res, next) => {
 }
 
 
-// GET POSTS
-// GET : api/posts/
-// Protected
+
 const getPosts = async (req, res, next) => {
     try {
         const posts = await Post.find().sort({ createdAt: -1 })
@@ -63,9 +59,7 @@ const getPosts = async (req, res, next) => {
 }
 
 
-// Get A SINGLE POST
-// GET : api/post/:id
-// Protected
+
 const getPost = async (req, res, next) => {
     try {
         const postId = req.params.id;
@@ -80,9 +74,7 @@ const getPost = async (req, res, next) => {
 }
 
 
-// GET POSTS BY CATEGORY
-// GET : api/posts/categories/:category
-// UnProtected
+
 const getCatPosts = async (req, res, next) => {
     try {
         const { category } = req.params;
@@ -94,9 +86,7 @@ const getCatPosts = async (req, res, next) => {
 }
 
 
-// GET USERS POSTS
-// GET : api/posts/users/:id
-// UnProtected
+
 const getUserPosts = async (req, res, next) => {
     try {
         const { id } = req.params;
@@ -108,9 +98,7 @@ const getUserPosts = async (req, res, next) => {
 }
 
 
-// EDIT POST
-// PATCH : api/posts/:id
-// Protected
+
 const editPost = async (req, res, next) => {
     try {
         let fileName;
@@ -171,9 +159,7 @@ const editPost = async (req, res, next) => {
 }
 
 
-// DELETE POST
-// DELETE : api/posts/:id
-// Protected
+
 const deletePost = async (req, res, next) => {
     try {
         const postId = req.params.id;

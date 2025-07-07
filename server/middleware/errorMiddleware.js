@@ -1,5 +1,4 @@
-// Unsupported (404)
-
+// Not Found (404)
 const notFound = (req, res, next)=>{
     const error = new Error(`not found - ${req.originalUrl}`)
     res.status(404)

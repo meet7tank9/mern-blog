@@ -3,9 +3,7 @@ const Post = require("../models/postModel")
 const User = require("../models/userModel")
 const HttpError = require("../models/errorModel")
 
-// CREATE A COMMENT
-// POST: api/comments/:postId
-// Protected
+
 const createComment = async (req, res, next) => {
     try {
         const { postId } = req.params
@@ -33,9 +31,7 @@ const createComment = async (req, res, next) => {
     }
 }
 
-// GET COMMENTS FOR A POST
-// GET: api/comments/:postId
-// Unprotected
+
 const getComments = async (req, res, next) => {
     try {
         const { postId } = req.params
@@ -49,9 +45,7 @@ const getComments = async (req, res, next) => {
     }
 }
 
-// EDIT A COMMENT
-// PATCH: api/comments/:id
-// Protected
+
 const editComment = async (req, res, next) => {
     try {
         const { id } = req.params

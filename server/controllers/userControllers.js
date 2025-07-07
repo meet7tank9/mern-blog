@@ -8,9 +8,7 @@ const nodemailer = require("nodemailer");
 const HttpError = require('../models/errorModel')
 const User = require("../models/userModel")
 
-// Register
-// POST: api/users/register
-// Unprotected
+
 const registerUser = async (req, res, next) => {
     try {
         const { name, email, password, cPassword } = req.body
@@ -45,9 +43,7 @@ const registerUser = async (req, res, next) => {
 
 
 
-// Login
-//  POST: api/users/login
-// Unprotected
+
 const loginUser = async (req, res, next) => {
     try {
         const { email, password } = req.body;
@@ -78,9 +74,7 @@ const loginUser = async (req, res, next) => {
 }
 
 
-// User profile : 
-// POST: api/users/:id
-// Protected
+
 const getUser = async (req, res, next) => {
     try {
         const { id } = req.params;
@@ -97,9 +91,7 @@ const getUser = async (req, res, next) => {
 }
 
 
-// Change User avatar
-// POST: api/users/change-avatar
-// Protected
+
 const changeAvatar = async (req, res, next) => {
     try {
         if (!req.files.avatar) {
@@ -144,9 +136,7 @@ const changeAvatar = async (req, res, next) => {
 }
 
 
-// Edit user details
-// POST: api/users/edit-user
-// Protected
+
 const editUser = async (req, res, next) => {
     try {
         const { name, email, currentPassword, newPassword, newConfirmPassword } = req.body;
@@ -186,9 +176,7 @@ const editUser = async (req, res, next) => {
 }
 
 
-// Get authors
-// POST: api/users/authors
-// Unprotected
+
 const getAuthors = async (req, res, next) => {
     try {
         const authors = await User.find({ posts: { $gt: 0 } }).select(`-password`)
@@ -203,9 +191,7 @@ const getAuthors = async (req, res, next) => {
 }
 
 
-// Forgot Password using OTP
-// POST: api/users/forgot-password
-// Unprotected
+
 const forgotPassword = async (req, res, next) => {
     try {
         const { email } = req.body;
@@ -248,9 +234,7 @@ const forgotPassword = async (req, res, next) => {
     }
 };
 
-// Verify OTP and Reset Password
-// POST: api/users/reset-password
-// Unprotected
+
 const resetPassword = async (req, res, next) => {
     try {
         const { email, otp, newPassword, confirmPassword } = req.body;
@@ -287,9 +271,7 @@ const resetPassword = async (req, res, next) => {
 };
 
 
-// Forgot Password using OTP
-// POST: api/users/forgot-password
-// Unprotected
+
 const contactUsMessage = async (req, res, next) => {
     try {
         const { email, name, mobile, subject, message } = req.body;
